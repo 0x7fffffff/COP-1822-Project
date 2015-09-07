@@ -1,0 +1,815 @@
+@charset "utf-8";
+/*
+	Michael MacCallum - COP1822
+
+	This will serve as the main stylesheet for the project. It contains all
+	styles that will be used in index.php.
+
+	The MIT License (MIT)
+
+	Copyright (c) [2014] [Michael MacCallum]
+
+	Permission is hereby granted, free of charge, to any person obtaining a 
+	copy of this software and associated documentation files 
+	(the "Software"), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish, 
+	distribute, sublicense, and/or sell copies of the Software, and to
+	permit persons to whom the Software is furnished to do so, subject to 
+	the following conditions:
+
+	The above copyright notice and this permission notice shall be included
+	in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+/*
+dark blue = 0, 87, 135
+light blue/ colored content = 6, 150, 222
+light content = white
+dark content = 246, 246, 246
+dark text = black
+*/
+
+/* Override default boundaries on elements. */
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Defaults on the body. Fonts double spacing, etc. */
+body, html {
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(6, 150, 222);
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
+		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   	font-weight: 300;
+   	line-height: 200%;
+
+   	color: rgb(81, 81, 81);
+}
+
+/* Defaults for the decorative blue dividers */
+hr {
+	width: 170px;
+	display: block; 
+	height: 1px;
+    border: 0; 
+    border-top: 1px solid rgb(6, 150, 222);
+    padding: 0; 
+}
+
+/* Left aligns divider */
+hr.left {
+	margin-left: 0px;
+}
+
+/* Right aligns divider */
+hr.right {
+	margin-right: 0px;
+}
+
+/* Defaults for links on page. No hover underlines and color is blue */
+a {
+	text-decoration: none;
+	color: rgb(6, 150, 222);
+}
+
+/* Default link hover color is dark blue */
+a:hover {
+	color: rgb(0, 87, 135);
+}
+
+.avoid_wrap {
+	display: inline-block;
+}
+
+/* Lots of fall backs for custom font. SVG still needs to be minimized
+to help load time. */
+@font-face {
+    font-family: 'Lane';
+    src: url('../fonts/lanenar_Lane.eot');
+    src: url('../fonts/lanenar_Lane.eot?#iefix') format('embedded-opentype'), 
+    	url('../fonts/lanenar_Lane.woff') format('woff'), 
+    	url('../fonts/lanenar_Lane.ttf') format('truetype'), 
+    	url('../fonts/lanenar_Lane.svg#Lane') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply custom font to all heading elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lane', sans-serif;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+}
+
+/* Size up h1, h2 and h3 elements */
+h1, h2 {
+    font-size: 42px;
+    line-height: 42px;
+    vertical-align: middle;
+    padding: 0px;
+}
+
+h3 {
+	font-size: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+/* Increase top margin to all paragraphs. */
+p {
+	margin-top: 2rem;
+}
+
+#fork_me {
+	position: fixed;
+	z-index: 1250;
+	width: auto; 
+	height: auto; 
+	top: 0px;
+	right: 0px;
+}
+
+#scroll_to_top {
+	position: fixed;
+	height: 60px;
+	width: 60px;
+	z-index: 250;
+}
+
+#warn_noscript {
+	color: red;
+	width: 100%;
+	height: 40px;
+	position: fixed;
+}
+
+/* Confgure header. Fixed at top of screen. High z index etc. Browser specific
+	attributes add border as internal instead of external. */
+header {
+	width: 100%;
+	height: 80px;
+	background-color: rgba(255, 255, 255, 0.98);
+	position: fixed;
+	text-align: center;
+	overflow: visible !important;
+	z-index: 1000;
+
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+nav {
+	height: 100%;
+	width: 100%;
+}
+
+header ul {
+	padding: 0px;
+	margin: 0 auto;
+	display: table;
+	width: 75%;
+	height: 100%;
+    overflow: hidden;
+}
+
+header li {
+    display: table-cell;
+    vertical-align: middle;
+    max-width: 80px;
+}
+
+/* Animate header link hover color */
+header li a {
+	padding: 0px;
+	margin: 0px;
+	transition: color 0.1s linear;
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	font-size: 16px;
+}
+
+nav li a:hover {
+	color: rgb(162, 162, 162);
+}
+
+#expander {
+	width: 100%;
+	height: 40px;
+	display: none;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	/*user-select: none; !! NO good.*/
+}
+
+#menu_centering_container {
+	display: table-cell;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#expander img {
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+	width: 40px;
+	height: 40px;
+	float: right;
+}
+
+#expander h3 {
+	padding: 0px;
+	margin: 0px;
+	line-height: 40px;
+	vertical-align: bottom;
+	display: inline-block;
+	float: left;
+}
+
+.hideable_link {
+	height: 0px;
+}
+
+.buffer {
+	margin: 0 auto;
+	width: 100%;
+	height: 80px;
+	background-color: rgb(6, 150, 222);
+}
+
+/* Auto-sizing defaults for sections. */
+section {
+	/* Must stay hidden for top vertical aligment */
+	overflow: hidden; 
+	padding: 0px;
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	z-index: 100;	
+}
+
+.content-light {
+	background-color: rgb(255, 255, 255);
+}
+
+.content-dark {
+	background-color: rgb(246, 246, 246);
+}
+
+.content-colored {
+	background-color: rgb(6, 150, 222);
+}
+
+.content-colored hr {
+    border-top: 1px solid rgb(246, 246, 246);
+}
+
+.content-colored h2 {
+	font-size: 32px;
+	line-height: 32px;
+	color: rgb(246, 246, 246);
+} 
+
+.content-colored h3 {
+	color: rgb(246, 246, 246);
+}
+
+.content-colored .content_container {
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+/* Different defaults for landing section. */
+#landing {
+	position: relative;
+	text-align: center;
+	height: 600px; /* A default value in case jQuery fails. */
+	display: table;
+	z-index: 500;
+}
+
+#landing_container {
+    font-family: 'Lane', sans-serif;
+	display: table-cell;
+	vertical-align: middle;
+	height: auto;
+	width: auto;
+}
+
+/* Constrains the main title of the page at most screen sizes. */
+#landing_container h1 {
+	border-top: 1px solid rgb(235, 235, 235);
+	border-bottom: 1px solid rgb(235, 235, 235);
+
+	padding: 0px;
+	margin: 0px;
+	width: auto;
+	max-width: 550px;
+	height: auto;
+    font-size: 65px;
+    line-height: 90px;
+    color: rgb(255, 255, 255);
+}
+
+#landing_container p {
+	margin: 0px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    color: rgb(235, 235, 235);
+}
+
+/* Auto sizing wrapper to assist in content alignment. */
+.wrapper {
+	overflow: auto;
+	vertical-align: middle;
+	display: block;
+}
+
+.wrapper img {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* Auto sizing container to assist in content alignment. */
+.content_container {
+	text-align: center;
+	height: 100%;
+	width: 75%;
+	margin: 0 auto;
+	padding-top: 40px;
+	padding-bottom: 60px;
+	vertical-align: middle;
+}
+
+/* Designed to take up a horizontal half of the parent. */
+.half_content {
+	overflow: auto;
+	margin: 0px;
+	max-width: 600px;
+	width: 49%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Auto sizing image with constraints */
+.aside_image {
+	padding: 0px;
+	max-width: 500px;
+	height: 80%;
+	width: 80%;
+	max-height: 500px;
+}
+
+.content_left {
+	text-align: left;
+}
+
+.content_right {
+	text-align: left;
+}
+
+/* Filler to clear floating divs to prevent incorrect sizing behavior. */
+.float_terminator {
+	clear: both;
+}
+
+.title_container {
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	text-align: center;
+	display: table;
+}
+
+.project {
+	padding: 0px;
+	width: 240px;
+	height: 425px;
+}
+
+.project figure {
+	margin: 15px 0px 0px 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.project_image {
+	margin: 0 auto;
+	padding: 0px;
+	height: auto;
+	border: solid 6px rgb(255, 255, 255);
+}
+
+time {
+	padding: 0px;
+	margin: 0px;
+	color: rgb(255, 255, 255);
+}
+
+.answer {
+	text-align: center;
+	display: inline-block;
+}
+
+#diamond_list {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Custom character for ul */
+#diamond_list li:before {
+	content: '♦';
+    margin: 10px;
+    color: rgb(6, 150, 222);	
+}
+
+.repo {
+	margin: 0px;
+	padding: 15px;
+	text-align: center;
+	width: 33%;
+	max-width: 600px;
+	height: auto;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 15px;
+}
+
+.repo div {
+	padding: 10px 0px;
+}
+
+.repo h3 {
+	top: 0px;
+	font-size: 22px;
+	padding: 0px;
+	margin: 0px;
+	color: rgb(6, 150, 222);
+}
+
+.repo h4 {
+	color: rgb(6, 150, 222);
+    padding: 0px;
+    margin: 0px;	
+}
+
+.repo a {
+	padding: 0px;
+	margin: 0px;
+}
+
+.repo img {
+	width: 80px;
+	height: 80px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#show_more {
+	display: block;
+}
+
+.table_container {
+	margin:0px;
+	padding: 0px;
+	text-align: center;
+    display: table;
+    width: 100%;
+}
+
+/* Places the gap between the sections of the skills table. */
+.skills {
+	display: inline-table;
+	vertical-align: top;
+    border-collapse: collapse;
+    margin: 30px 15px 0px 15px;
+	width: 30%;
+	min-width: 320px;
+    max-width: 640px;
+}
+
+/* Coloring and sizing of list cells for skills. */
+.row {
+	height: 50px;
+	background-color: rgb(246, 246, 246);
+}
+
+.big_text_row {
+    font-family: 'Lane', sans-serif;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+	font-size: 1.75rem;
+
+	height: 78px;
+	color: rgb(6, 150, 222);
+}
+
+thead .gap_row {
+	height: 82px;
+	background-color: transparent;
+}
+
+thead .best_group {
+	background-color: rgb(6, 150, 222);
+}
+
+thead .best_group {
+	color: rgb(255, 255, 255);
+}
+
+.field {
+	margin: 1em 0;
+}
+
+form div {
+	text-align: center;
+	padding: 15px;
+}
+
+#email_container {
+	display: inline-block;
+	width: 49%;
+	max-width: 400px;
+}
+
+#name_container {
+	display: inline-block;
+	width: 49%;
+	max-width: 400px;
+}
+
+#body_container {
+	width: 98%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#button_container {
+	width: 98%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#message_container {
+	text-align: center;
+	width: 98%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+label {
+	padding: 5px;
+	color: rgb(0, 0, 0);
+}
+
+input {
+	width: 100%;
+	font-size: 1.2em;
+	border-radius: 3px;
+	border: 2px solid rgb(235, 235, 235);
+}
+
+textarea {
+	color: black;
+	width: 100%;
+	height: 120px;
+	font-size: 1.2em;
+	border-radius: 3px;
+	border: 2px solid rgb(235, 235, 235);
+}
+
+button {
+	margin: 0 auto;
+	border-radius: 3px;
+	border: none;
+	font-size: 0.9rem;
+	background-color: rgb(6, 150, 222);
+	border-bottom: 1px solid #498b50;
+	color: rgb(246, 246, 246);
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+}
+
+button:hover, button:focus {
+	background-color: rgb(0, 87, 135);
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+}
+
+button:active {
+	opacity: 1;
+	box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
+}
+
+.success {
+	padding: 1em;
+	margin-bottom: 0.75rem;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: rgb(39, 174, 96);
+	background-color: rgba(46, 204, 113, 0.4);
+	border: 1px solid rgb(39, 174, 96);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.error {
+	padding: 1em;
+	margin-bottom: 0.75rem;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: rgb(192, 57, 43);
+	background-color: rgba(231, 76, 60, 0.4);
+	border: 1px solid rgb(192, 57, 43);
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+footer {
+	height: auto;
+	width: 100%;
+	background-color: rgb(6, 150, 222);
+	text-align: center;
+}
+
+#footer_container {
+	vertical-align: middle;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#footer_center {
+	padding: 0px;
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+footer ul {
+	margin: 0 auto;
+	padding: 0px;
+	color: rgb(255, 255, 255);
+}
+
+footer li {
+	vertical-align: middle;
+	margin: 0px;
+	display: inline-block;
+	padding: 0px 0px;
+}
+
+footer li:before {
+	content: '/';
+    margin: 10px;
+    color: rgb(255, 255, 255);	
+}
+
+footer li:first-child:before {
+	content: none;
+    margin: 0px;
+}
+
+footer li a {
+	color: rgb(0, 87, 135);
+}
+
+footer li a:hover {
+	color: rgb(246, 246, 246);
+}
+
+footer canvas, img {
+	margin: 0 auto;
+	margin-bottom: 10px;
+	width: 154px;
+	height: 64px;
+}
+
+@media screen and (max-width: 860px) {
+	header ul {
+		width: 100%;
+	}
+
+	#scroll_to_top {
+		visibility: hidden;
+	}
+
+	#fork_me {
+		visibility: hidden;
+	}
+
+	.skills {
+		width: 90%;
+		min-width: 100px;
+	}
+
+	#email_container, #name_container {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.content_right {
+		padding-top: 30px;
+	}
+
+	.half_content {
+		width: 100%;
+	}
+
+	.repo {
+		width: 90%;
+	}
+
+	.repo div {
+		display: inline-block;	
+	}
+
+	.answer h2 {
+		font-size: 18px;
+		line-height: 18px;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	header {
+		background-color: transparent;
+
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		border-bottom: none;
+
+		height: 60px;
+	}
+
+	header ul {
+		width: 100%;
+		background-color: rgba(255, 255, 255, 0.98);
+		padding-top: 10px;
+
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		border-bottom: 1px solid rgb(230, 230, 230);
+	}
+
+	header li {
+		height: 60px;
+	    max-width: none;
+		display: block;
+		vertical-align: bottom;
+	}
+
+	#expander {
+		display: inherit;
+		padding: 0px 20px 0px 20px;
+	}
+
+	.content_container {
+		width: 100%;
+	}
+
+	.content_right {
+		padding-top: 30px;
+	}
+
+	.half_content {
+		width: 90%;
+	}
+
+	.title_container {
+		width: 90%;
+	}
+	
+	.repo {
+		width: 90%;
+	}
+
+	.repo div {
+		display: inline-block;	
+	}
+}

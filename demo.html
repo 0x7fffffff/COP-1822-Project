@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+<!-- 
+	Michael MacCallum - COP1822
+	This file contains the entire contents of the demo page explaining
+	this project.
+
+	Some of the elements on this page that aren't included on the main page
+	include:
+
+	audio, video, ol (and nested lists), code, pre, strong
+
+	This page will also include demonstrations of both internal and inline CSS.
+	The inline CSS can be found in the sections for the embedded YouTube video,
+	as well as the section for the canvas element.
+ -->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Michael MacCallum's Portfolio Demonstration</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<style type="text/css" media="screen">
+			html, body {
+				margin: 0px;
+				padding: 0px;
+				color: rgb(81, 81, 81);
+				line-height: 150%;
+			}
+
+			#scroll_to_top {
+				position: fixed;
+				height: 60px;
+				width: 60px;
+			}
+
+			a {
+				color: rgb(6, 150, 222);
+			}
+
+			a:hover {
+				color: rgb(0, 87, 135);
+			}
+
+			header {
+				width: 100%;
+				height: 80px;
+				background-color: rgb(6, 150, 222);
+				position: fixed;
+				text-align: center;
+				overflow: hidden;
+				z-index: 1000;
+
+				box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				-webkit-box-sizing:border-box;
+				border-bottom: 1px solid rgb(230, 230, 230);
+			}
+
+			/* Set up header list to be horizontal and centered. */
+			header ul {
+				padding: 0px;
+				width: 90%;
+				max-width: 800px;
+				height: 100%;
+				display: inline-table;
+				margin: 0 auto;
+			}
+
+			header li {
+			    display: table-cell;
+			    vertical-align: middle;
+				padding: 0px 20px 0px 20px;
+				min-width: auto;
+			}
+
+			/* Animate header link hover color */
+			header li a {
+				transition: color 0.1s linear;
+				color: rgb(255, 255, 255);
+				text-decoration: none;
+				font-size: 16px;
+			}
+
+			header li a:hover {
+				color: rgb(81, 81, 81);
+			}
+
+			#buffer {
+				width: 100%;
+				height: 80px;
+			}
+
+			section {
+				width: 100%;
+				height: auto;
+			}
+
+			.container {
+				margin: 0 auto;
+				width: 90%;
+				max-width: 800px;
+				padding-top: 40px;
+				padding-bottom: 40px;
+				border-bottom: 1px solid rgb(230, 230, 230);
+			}
+
+			.conflict {
+				color: rgb(214, 69, 65);
+			}
+
+			pre {
+				max-height: 300px;
+			}
+
+			footer {
+				text-align: center;
+				width: 100%;
+				height: 80px;
+				background-color: rgb(246, 246, 246);
+			}
+
+			footer p {
+				font-size: 14px;
+				margin: auto;
+				padding-top: 33px;
+			}	
+		</style>
+
+		<link rel="stylesheet" type="text/css" href="css/Prism.css" />
+	</head>
+
+	<!--
+		The MIT License (MIT)
+
+		Copyright (c) [2014] [Michael MacCallum]
+
+		Permission is hereby granted, free of charge, to any person obtaining a 
+		copy of this software and associated documentation files 
+		(the "Software"), to deal in the Software without restriction, including
+		without limitation the rights to use, copy, modify, merge, publish, 
+		distribute, sublicense, and/or sell copies of the Software, and to
+		permit persons to whom the Software is furnished to do so, subject to 
+		the following conditions:
+
+		The above copyright notice and this permission notice shall be included
+		in all copies or substantial portions of the Software.
+
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+		EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+		MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+		IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+		CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+		TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+		SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	-->
+
+	<body>
+
+		<img id="scroll_to_top" src="images/scroller.png"
+			 alt="Click to scroll to top." title="Click to scroll to top.">
+
+		<header>
+			<ul>
+				<li>
+					<a class="jquery_link" href="#landing">
+						Introduction
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#about_me">
+						About Me
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#projects">
+						Projects
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#github">                            
+						GitHub
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#stack_overflow"> 
+						Stack Overflow
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#skills">
+						Skills
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#contact">                            
+						Contact
+					</a>
+				</li>
+
+				<li>
+					<a class="jquery_link" href="#other">                            
+						Other Content
+					</a>
+				</li>
+			</ul>
+		</header>
+
+		<div id="buffer"></div>
+
+		<section data-id="landing" id="landing" class="content-colored">
+			<div class="container">
+				<h2>
+					Introduction
+				</h2>
+
+				<p>
+					This website <strong>is not my project</strong>, it is
+					merely the site on which my project will be explained. The
+					actual project can be found at the root of
+					<a href="index.php">
+						mickmaccallum.com
+					</a> (specifically /index.php). Although there are many
+					similarities between this page and my project, this page
+					doesn't have all the features that are enabled in the
+					project, but does use a 3rd party library that isn't
+					included in the main project.
+					<a href="http://prismjs.com">
+						Prism.js
+					</a> powers the syntax highlighting on this page.
+				</p>
+
+				<p>
+					For my project I've chosen to create a personal portfolio.
+					It is a landing page style site that will feature a
+					responsive layout when completed (mostly implemented).
+					It uses a fixed navigation bar that
+					animates between sizes depending on the content offset of
+					the web page. Clicking the links on the navigation bar
+					causes the page to animate to align the selected section
+					with the bottom of the navigation bar. This is all
+					accomplished using jQuery which is located and documented at
+					<a href="http://mickmaccallum.com/js/portfolio_project.js">
+						cop1822.mickmaccallum.com/js/portfolio_project.js</a>,
+						although this is the gist of the behavior.
+				</p>
+
+				<pre>
+					<code class="language-javascript">
+$(function() {
+	/**
+	*	Resize the landing page once onReady to override its default height of 
+	*	600px and size it to the window's bounds.
+	*/
+	resizeLandingToWindowHeight();
+
+	// Configure functionality of links in the navigation bar.
+	$('.jquery_link').on('click', function(event) {
+		// Remove default functionality of the link. We want to animate it.
+		event.preventDefault();
+
+		/**
+		*	Use the href attribute as the target. This will allow the brower
+		*	to fall back on link functionality without animations in case jQuery
+		*	fails. This also removes the need to have an additional data
+		*	attribute to keep track of which nav link is linked to each section.
+		*/
+		var target = $(this).attr('href');
+		// Gets the large size of the navigation bar.
+		var offset = $('header').data('largeSize');
+
+		/** 
+		*	Reset the offset size to the navigation bar's small size if
+		*	the link will navigate the page to any section below the landing
+		*	page. This is necessary to align with the navigation bar's smaller
+		*	size at these offsets.
+		*/
+		if (target != '#landing') {
+			offset = $('header').data('smallSize');
+			collapseNavBar();
+		};
+
+		/**
+		*	Animate the offset of the page to align the selected section with
+		*	the bottom of the navigation bar.
+		*/
+		$('html, body').stop().animate({
+			scrollTop: $(target).offset().top - offset
+		}, 500);
+	});
+});
+					</code>
+				</pre>
+
+				<p>
+					The navigation bar is now entirely done. It features link
+					highlighting depending on which section is currently in
+					view and links that animate the page to their corresponding
+					section. The bar is also capable of resizing down to mobile
+					resolutions and rearranging itself into a drop down menu.
+				</p>
+			</div>
+		</section>
+
+		<section data-id="about_me" id="about_me" class="content-light">
+			<div class="container">
+				<h2>
+					About Me Section
+				</h2>
+				<p>
+					This section features two divs side by side wrapped by a
+					container which is responsible for centering them. In this
+					case, the div on the left shows a graphic related to the
+					section, and the right div shows relevant text. This is the
+					simple yet powerful bit of CSS responsible for enabling
+					this behavior.
+				</p>
+				<pre>
+					<code class="language-css">
+.centering_container {
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+}
+					</code>
+				</pre>
+
+				<p>
+					From there, the two inner divs float left and right to allow
+					the side by side behavior and their container features a
+					max-width to force one inner div below the other if the page
+					shrinks. This will be more advanced in the future once I set
+					up the appropriate media queries to make this section fully
+					responsive.
+				</p>
+			</div>
+		</section>
+
+		<section data-id="projects" id="projects" class="content-dark">
+			<div class="container">
+				<h2>
+					Projects Section
+				</h2>
+				<p>
+					This section doesn't contain a very wide variety of content.
+					It has a centered title and subtitle using heading tags
+					to convey the purpose of the section. Beyond that, it
+					utilizes the 3rd party library
+					<a href="http://kenwheeler.github.io/slick/">
+						Slick.js
+					</a> to power the carousel. The functionality of carousel
+					is such that navigation dots and arrows are only shown if
+					there are more screenshots available to show then are
+					allowed on screen. This number varies based on the size of
+					the screen and is configured as follows.
+				</p>
+
+				<pre>
+					<code class="language-javascript">
+$(function() {
+	/**
+	*	Initial configuration for Slick carousel. Still needs more fine tuning
+	*	including auditing the confiurations for different layout sizes.
+	*/
+	$('.projects').slick({
+		dots: true,
+		infinite: true,
+		speed: 300,
+		slidesToShow: 4,
+		lazyLoad: 'ondemand',
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: true,
+					dots: true
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
+});
+					</code>
+				</pre>
+
+				<p>
+					The images in the carousel will all be screenshots of
+					mobile applications that I've developed, and will each
+					link to either the GitHub repository at which the source
+					of the application can be found, or directly
+					to the App Store.
+				</p>
+
+				<h3 class="conflict">
+					Conflicts
+				</h3>
+
+				<ul class="conflict">
+					<li>
+						<p>
+							Section has several levels of nesting and contains
+							URLs of medium to long length. This means that some
+							lines will exceed 80 columns, and making a line
+							break mid URL is not only scary, but will cause
+							the W3 HTML validator to fail.
+						</p>
+					</li>
+				</ul>
+
+				<h3>
+					Resolutions
+				</h3>
+
+				<ul>
+					<li>
+						Used a URL shortener.
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-id="github" id="github" class="content-light">
+			<div class="container">
+				<h2>
+					GitHub Section
+				</h2>
+				<p>
+					This section is mostly finished. So far it contains a grid
+					of information about repositories that I've either forked
+					or modified on GitHub. On large screens, the grid is layed
+					out in a 3xN pattern, but on smaller screens will scale down
+					to 2xN and eventually 1xN.
+				</p>
+
+				<p>
+					Each repository has the ability to only show the first 100
+					or so characters of its description text and to add a
+					show more link to load the rest of the text. This section
+					only loads 6 repos by default, but contains the ability to
+					load more in intervals of 3 until all repos are exhausted.
+					The logic for this section looks like this:
+				</p>
+
+				<pre>
+					<code class="language-javascript">
+function generateReposFromJSON(json) {
+
+	// Get all the numeric ids from the rendered repos.
+	var ids = $(".repo").map(function() {
+		/**
+		*	Extracts integers from each repo's data-repo attribute.
+		*	Radix: base 10
+		*/
+		return parseInt($(this).attr('data-repo'), 10);
+	}).get();
+
+	// Get the max numeric value from the list of ids.
+	var highest = Math.max.apply(Math, ids);
+	var colCount = 3;
+
+		// Get next 3 repos, numbered for non-programmer humans.
+	for (var i = highest + 1 ; i < highest + 1 + colCount ; i++) {
+		var repo = json[i];
+		// Only have a few to work with, so they need to repeat.
+		var octocat = OCTODEX[i % OCTODEX.length];
+
+		// number of repos remaining.
+		var remaining = json.length - (highest + 1 + colCount);
+		
+		/** 
+		*	Require that the repo exists. This also handles termination
+		*	when the array runs out of repos to provide.
+		*/
+		if (repo != null) {
+
+			// Get description field and make unaltered copy.
+			var description = repo.description;
+			var data = description;
+
+			var maxLength = 100;
+			var overflowBuffer = 40;
+
+			// Require the description to exist.
+			if (description != null) {
+				// Require the description's length to be > 140 chars.
+				if (description.length > maxLength + overflowBuffer) {
+					/**
+					*	Get first 100 characters from description and
+					*	add show more link.
+					*/
+					description = description.substring(0, maxLength) +
+						'... <a href="#">show more</a>';
+				};
+			} else {
+				// Blank looks better than 'null'.
+				description = '';
+			};
+
+			var language = repo.language;
+
+			if (language == null || language.length == 0) {
+				language = 'No Language';
+			};
+			
+			/**
+			*	Add the template HTML before the show more button. This
+			*	will add the new repo as the second to last element in
+			*	the repositories container.
+			*/
+			$('#show_more').before(template);
+
+			// Change count down text on more link if repos remain.
+			if (remaining > 0) {
+				var numToShow = colCount;
+
+				if (remaining <= colCount) {
+					numToShow = remaining;
+				};
+
+				$('#show_more').html('Show ' + numToShow + ' of ' +
+					remaining + ' More');
+			} else {
+				// Hide the show more link when all repos are shown.
+				$('#show_more').hide();						
+			};
+		};	
+	};
+
+	// Add show more capability to newly added repos.
+	overrideReadMoreLinkBehavior();
+}
+					</code>
+				</pre>
+			</div>
+		</section>
+
+		<section data-id="stack_overflow" id="stack_overflow"
+			class="content-dark">
+			<div class="container">
+				<h2>
+					Stack Overflow Section
+				</h2>
+				<p>
+					This section details some of the accomplishments
+					I've made on
+					<a href="http://www.stackoverflow.com/">
+						StackOverflow.com
+					</a>. It is layed out in the same way as the About Me
+					section with two side by side divs, but in this case,
+					the relevant graphic is on the right. In addition to this,
+					underneath the left aligned text is vertical unordered
+					list that details a few relevant peices of information.
+					The li items in this list have been modified to replace
+					the default dots with diamonds, and alter their aligmnents.
+					The key bit of CSS responsible for this looks like this.
+				</p>
+				<pre>
+					<code class="language-css">
+.diamond_list {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.diamond_list li:before {
+	content: '♦';
+	margin: 10px;
+	color: rgb(6, 150, 222);	
+}
+					</code>
+				</pre>
+			</div>
+		</section>
+
+		<section data-id="skills" id="skills" class="content-light">
+			<div class="container">
+				<h2>
+					Skills Section
+				</h2>
+
+				<p>
+					This section contains the same centered title and subtitle
+					style as some of the sections above. It also features a
+					table to display some areas where I'm most knowledgable.
+					I'm still not entirely sure if this is the exact data that
+					I want to display here, but the basic display concept is
+					final. There are 3 columns, each of which will display a
+					type of skill as well as a list of items relevant to that
+					skill, and a relative percentage to show competence
+					in that area.
+				</p>
+
+				<p>
+					The table itself isn't very complex, but it has a couple
+					of interesting styling selections that make it look more
+					like a collection of other elements and not a table.
+					It is divided into 3 sections, each of which have a slight
+					gap in between them, making it look like 3 different
+					elements. Each of these sections has a light grey header,
+					and a second section (sub header) that is either
+					transparent or blue and contains to percentage of
+					knowledge of the skill. Below these sub headers are lists
+					of items I know relevant to the section. The CSS for this
+					layout should make this more clear.
+				</p>
+
+				<pre>
+					<code class="language-css">
+thead .title_row {
+	height: 78px;
+	color: rgb(6, 150, 222);
+}
+
+thead .gap_row {
+	height: 82px;
+	background-color: transparent;
+}
+
+thead .best_group {
+	background-color: rgb(6, 150, 222);
+}
+
+thead .best_group {
+	color: rgb(255, 255, 255);
+}
+					</code>
+				</pre>
+
+				<h3 class="conflict">
+					Conflicts
+				</h3>
+
+				<ul class="conflict">
+					<li>
+						Accessibility toolbar in Firefox requires the use of
+						the "summary" attribute on table elements to pass.
+						This conflicts with the W3 validator that considers
+						the presence of the "summary" attribute to be a reason
+						for failure.
+					</li>
+				</ul>
+
+				<h3>
+					Resolutions
+				</h3>
+
+				<ul>
+					<li>
+						Removed summary attribute as per professor's request.
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-id="contact" id="contact" class="content-dark">
+			<div class="container">
+				<h2>
+					Contact Section
+				</h2>
+				<p>
+					This section contains a form that the user can fill out to
+					email me directly. When the user submits the form, the
+					default action of the form is prevented by a jQuery
+					function at the bottom of
+					<a href="http://cop1822.mickmaccallum.com/js/portfolio_project.js">
+						cop1822.mickmaccallum.com/js/portfolio_project.js
+					</a>. From there, AJAX is used to asynchronously post
+					to mailer.php (code below) and retrieve its output. This
+					allows the page to stay responsive during submission, as
+					well as providing a concise mechanism for updating the UI
+					on the main page to give the user feedback on whether or
+					not the submission was successful without actually
+					reloading the page.
+				</p>
+
+				<p>
+					I plan on signifigantly expanding on this in the future.
+					It already performs some basic form validation and prevents
+					the user from submitting the form without entering correct
+					information, but still needs to be expanded to show
+					different error messages depending on the error. It also
+					needs reworked to better match the stylings of the rest of
+					the page and perhaps some slight layout changes.
+				</p>
+
+				<pre>
+					<code class="language-php">
+// My modifications to mailer script from:
+// http://blog.teamtreehouse.com/create-ajax-contact-form
+// Added input sanitizing to prevent injection
+
+// Only process POST reqeusts.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	// Get the form fields and remove whitespace.
+	$name = strip_tags(trim($_POST["name"]));
+			$name = str_replace(array("\r","\n"),array(" "," "),$name);
+	$email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+	$message = trim($_POST["message"]);
+
+	// Check that data was sent to the mailer.
+	if ( empty($name) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		// Set a 400 (bad request) response code and exit.
+		http_response_code(400);
+		echo "Oops! There was a problem with your submission. Please complete the form and try again.";
+		exit;
+	}
+
+	// Set the recipient email address.
+	$recipient = "micksmaccallum@gmail.com";
+
+	// Set the email subject.
+	$subject = "New contact from $name";
+
+	// Build the email content.
+	$email_content = "Name: $name\n";
+	$email_content .= "Email: $email\n\n";
+	$email_content .= "Message:\n$message\n";
+
+	// Build the email headers.
+	$email_headers = "From: $name <$email>";
+
+	// Send the email.
+	if (mail($recipient, $subject, $email_content, $email_headers)) {
+		// Set a 200 (okay) response code.
+		http_response_code(200);
+		echo "Thank You! Your message has been sent.";
+	} else {
+		// Set a 500 (internal server error) response code.
+		http_response_code(500);
+		echo "Oops! Something went wrong and we couldn't send your message.";
+	}
+
+} else {
+	// Not a POST request, set a 403 (forbidden) response code.
+	http_response_code(403);
+	echo "There was a problem with your submission, please try again.";
+}
+					</code>
+				</pre>
+			</div>
+		</section>
+
+		<section data-id="other" id="other" class="content-light">
+			<div class="container">
+				<h2>
+					Separate Content Sections (other)
+				</h2>
+
+				<p>
+					These sections will include examples of all elements
+					required for the project that I wasn't able to make fit
+					on to the main page. These include, nested lists including
+					ordered lists, audio elements, video elements, and embedded
+					YouTube videos.
+				</p>
+
+				<h4>
+					Project Requirements
+				</h4>
+
+
+				<ul> 
+					<li>
+						Overall Requirements
+						<ul>
+							<li>
+						  		Readability
+
+						  		<ol>
+							    	<li>
+							    		Code should be beautiful
+						    		</li>
+
+						    		<li>
+							    		White space and blank lines
+							    			effective and consistent
+						    		</li>
+
+						    		<li>
+							    		Javascript adhers to Google Javascript
+							    			Style Guide.
+							  		</li>
+						  		</ol>
+						  	</li>
+					    	
+					  		<li>
+								Documentation
+
+								<ol>
+								    <li>
+							    		Comments with name and description
+							    			in every file
+						    		</li>
+
+						    		<li>
+							    		Comments explaining non-obvious code
+						    		</li>
+							    
+								    <li>
+							    		Comments for references
+						    		</li>
+								</ol>
+							</li>
+
+							<li>
+								Validation
+
+								<ol>
+									<li>
+										Should validate as HTML5
+									</li>
+
+									<li>
+										Should validate as CSS3
+									</li>
+
+									<li>
+										Add validated badge if both validators
+											are passed.
+									</li>
+								</ol>
+							</li>	
+
+							<li>
+								User Interface
+
+								<ol>
+									<li>
+										User friendly and well aligned
+									</li>
+
+									<li>
+										Title is simple and clean
+									</li>
+
+									<li>
+										Easy to read, no spelling errors, etc.
+									</li>
+
+									<li>
+										Text and backgrounds should
+											sufficiently contrast
+									</li>
+
+									<li>
+										No fail level violations from the
+											Accessibility Evaluation Toolbar
+									</li>
+
+									<li>
+										Site should include
+
+										<code>
+											land="en"
+										</code> 
+
+										in all html tags
+									</li>
+
+									<li>
+										Site follows WCAG guidelines
+									</li>
+								</ol>
+							</li>						    
+			    		</ul>
+			    	</li>
+
+			    	<li>
+			    		Assignment Specs
+
+			    		<ol>
+			    			<li>
+			    				Paragraph on top of each page describing what
+			    					elements are used on the page
+			    			</li>
+
+			    			<li>
+			    				Text on each page to explain where to find
+			    					elements that aren't on the current page
+			    			</li>
+
+			    			<li>
+			    				Upload site to web server
+			    			</li>
+			    		</ol>
+			    	</li>
+
+			    	<li>
+			    		Extra Challenges
+
+			    		<ol>
+			    			<li>
+			    				Register a domain name for the site
+			    			</li>
+
+			    			<li>
+			    				Use SEO techniques
+			    			</li>
+
+			    			<li>
+			    				Add alternate CSS for printing and mobile
+			    			</li>
+
+			    			<li>
+			    				Setup Google analytics
+			    			</li>
+
+			    			<li>
+			    				Add Facebook like button
+			    			</li>
+
+			    			<li>
+			    				Add Twitter feed widget
+			    			</li>
+
+			    			<li>
+			    				Add a RSS feed widget
+			    			</li>
+			    		</ol>
+			    	</li>
+
+			    	<li>
+			    		Milestone 1 Requirements
+
+			    		<ul>
+			    			<li>
+			    				Elements
+
+			    				<ul>
+			    					<li>
+					    				Lists
+
+					    				<ol>
+					    					<li>
+					    						Ordered
+					    					</li>
+
+					    					<li>
+					    						Unordered
+					    					</li>
+
+					    					<li>
+					    						Nested lists
+					    					</li>
+
+					    					<li>
+					    						Custom icons
+					    					</li>
+					    				</ol>
+					    			</li>
+
+					    			<li>
+					    				Tables
+					    			</li>
+
+					    			<li>
+					    				Images
+					    			</li>
+
+					    			<li>
+					    				Figures
+					    			</li>
+
+					    			<li>
+					    				Forms
+					    			</li>
+								</ul>
+			    			</li>
+			    		</ul>
+			    	</li>
+
+			    	<li>
+			    		Milestone 2 Requirements
+
+			    		<ul>
+			    			<li>
+			    				CSS
+
+			    				<ul>
+					    			<li>
+					    				Properties
+
+					    				<ol>
+					    					<li>
+					    						Positioning
+					    					</li>
+
+					    					<li>
+					    						Colors
+					    					</li>
+
+					    					<li>
+					    						Font families
+					    					</li>
+
+					    					<li>
+					    						Background colors
+					    					</li>
+
+					    					<li>
+					    						Floats
+					    					</li>
+
+					    					<li>
+					    						Aligns
+					    					</li>
+
+					    					<li>
+					    						IDs
+					    					</li>
+
+					    					<li>
+					    						Classes
+					    					</li>
+					    						
+					    					<li>
+					    						Pseudo elements
+					    					</li>
+					    				</ol>
+					    			</li>
+
+					    			<li>
+					    				Usage (placement)
+
+					    				<ol>
+					    					<li>
+					    						Internal
+					    					</li>
+
+					    					<li>
+					    						Inline
+					    					</li>
+
+					    					<li>
+					    						External
+					    					</li>
+					    				</ol>
+					    			</li>
+			    				</ul>
+			    			</li>	
+
+			    			<li>
+			    				Elements
+
+			    				<ul>
+			    					<li>
+			    						Audio (>= 2 formats)
+			    					</li>
+
+			    					<li>
+			    						Video (>= 2 formats)
+			    					</li>
+
+			    					<li>
+			    						YouTube (must validate)
+			    					</li>
+
+			    					<li>
+			    						Canvas
+			    					</li>
+			    				</ul>
+			    			</li>
+			    		</ul>
+			    	</li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-id="other" class="content-light">
+			<div class="container">
+				<h3>
+					YouTube
+				</h3>
+
+				<p>
+					This section will serve as an example of a correctly
+					validating embedded YouTube video. It features a video of a
+					TED talk about drones, and has inline CSS to adjust its
+					width, and height.
+				</p>
+
+				<div style="text-align: center; margin: auto">
+					<object type="application/x-shockwave-flash" 
+						style="width:800px; height:425px;" 
+						data="http://tinyurl.com/l4wnxvb">
+						<param name="movie" value="http://tinyurl.com/psgh4p7"/>
+						<param name="allowFullScreen" value="true"/>
+						<param name="allowscriptaccess" value="always"/>
+					</object>
+				</div>
+			</div>
+		</section>
+
+		<section data-id="other" class="content-light">
+			<div class="container">
+				<h3>
+					Video Tag
+				</h3>
+
+				<p>
+					This section demonstrates the usage of a video element. It
+					creates a single video element that is 800x450px without
+					controls. The video is set to autoplay and to loop
+					indefinately. The video sources are arranged by ascending
+					file size to attempt to optimize for bandwith when being
+					viewed on browsers that only download the first source
+					that they need.
+				</p>
+
+				<video width="800" height="450" autoplay loop>
+					<source src="media/timeLapse.ogg" type="video/ogg">
+					<source src="media/timeLapse.webm" type="video/webm">
+					<source src="media/timeLapse.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</section>
+
+		<section data-id="other" class="content-light">
+			<div class="container">
+				<h3>
+					Audio Tag
+				</h3>
+
+				<p>
+					This section shows the usage of the audio element. It
+					features a single audio element with controls enabled and
+					three audio sources arranged by ascending file size to
+					optimize for browsers that only download the first source
+					that they need. The source of the audio can be found on
+					<a href="https://soundcloud.com/buygore/poltergeist">
+						SoundCloud.
+					</a>
+				</p>
+
+				<audio controls>
+					<source src="media/poltergeist.ogg" type="audio/ogg">
+					<source src="media/poltergeist.mp3" type="audio/mpeg">
+					<source src="media/poltergeist.wav" type="audio/wav">
+					Your browser does not support the audio element.
+				</audio>
+
+			</div>
+		</section>
+
+		<section data-id="other" class="content-light">
+			<div class="container">
+				<h3>
+					Canvas Element
+				</h3>
+
+				<p>
+					This section contains a demonstrating of the usage of the
+					canvas element. It has a very basic canvas laid out in the
+					full width of the section. By default, the content of the
+					canvas is blank, but this page is utilizing Sketch.js to
+					add the ability to draw directly on the canvas. You can
+					choose the color to draw with by selecting it above the 
+					canvas, and when done, the download link will allow you to
+					save a png rendering of the canvas.
+				</p>
+				<div class="tools">				  	
+				  	<a href="#colors_sketch" data-download="png" 
+				  		style="float: right; width: 100px;">
+				  		Download
+					</a>
+				</div>
+
+				<canvas id="colors_sketch" width="800" height="450" 
+					style="border:1px solid rgb(81, 81, 81);">
+				</canvas>
+			</div>
+		</section>
+
+		<section class="content-dark">
+			<div class="container">
+				<h2>
+					Cumulative References
+				</h2>
+
+				<ul>
+					<li>
+						Libraries Used
+						
+						<ol>
+							<li>
+								<a href="http://jquery.com">
+									jQuery v2.1.1
+								</a>
+							</li>
+
+							<li>
+								<a href="http://jquerymobile.com/">
+									jQuery Mobile v1.4.4
+								</a>
+							</li>
+							
+							<li>
+								<a href="http://kenwheeler.github.io/slick/">
+									Slick.js
+								</a>
+							</li>
+							
+							<li>
+								<a href="http://prismjs.com">
+									Prism.js
+								</a>
+							</li>
+							
+							<li>
+								<a href="http://timeago.yarp.com">
+									jQuery.timeago.js
+								</a>
+							</li>	
+
+							<li>
+								<a href="http://imulus.github.io/retinajs/">
+									retina.js
+								</a>
+							</li>							
+							
+							<li>
+								<a href="http://intridea.github.io/sketch.js/">
+									Sketch.js
+								</a>
+							</li>
+						</ol>
+					</li>
+
+					<li>
+						Tutorials Followed
+						
+						<ol>
+							<li>
+								<a href="http://tinyurl.com/po65f4b">
+									How to Create an AJAX Contact Form
+								</a>
+							</li>
+						</ol>
+					</li>
+
+					<li>
+						Footer References
+						
+						<ol>
+							<li>
+								Copyright statement
+							</li>
+							
+							<li>
+								Link to promote the hosting company
+							</li>
+
+							<li>
+								Source of Octocats used as icons for GitHub
+									repos (GitHub's Octodex)
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<footer>
+			<p>
+				&copy;2014 Michael MacCallum, all rights reserved.
+			</p>
+		</footer>
+
+		<!-- include jQuery 2.1.1 from Google's CDN  -->        
+		<script type="text/javascript" 
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+		</script>
+
+		<script type="text/javascript" src="js/sketch.min.js"></script>
+		<script type="text/javascript" src="js/Prism.min.js"></script>
+
+		<script type="text/javascript">
+		// fall back on local copy of jQuery if load from CDN fails.
+		if (typeof jQuery == 'undefined') {
+			document.write(unescape("%3Cscript src='js/jquery-2.1.1.min.js'" +
+				" type='text/javascript'%3E%3C/script%3E"));
+		}
+
+		$(function() {
+			// Configure functionality of links in the navigation bar.
+			$('.jquery_link').on('click', function(event) {
+				// Remove default functionality of the link to animate it.
+				event.preventDefault();
+				
+				var target = $(this).attr('href');
+				// Gets the large size of the navigation bar.
+				var offset = $('header').height();
+
+				/**
+				*	Animate the offset of the page to align the selected section
+				*	with the bottom of the navigation bar.
+				*/
+				$('html, body').stop().animate({
+					scrollTop: $(target).offset().top - offset
+				}, 500);
+			});
+		});
+
+		$(function() {
+			var scrollToTop = $('#scroll_to_top');
+			
+			scrollToTop.css({
+				top: $(window).height() - 120,
+				left: $(window).width() - 120
+			});
+
+			scrollToTop.click(function(event) {
+				$("html, body").animate({ 
+					scrollTop: 0 
+				}, "slow");
+				return false;
+			});
+
+			scrollToTop.hover(function() {
+				scrollToTop.css('color', 'rgb(0, 87, 135)');
+			}, function() {
+				scrollToTop.css('color', 'rgb(6, 150, 222)');
+			});
+		});
+
+		$(window).scroll(function(event) {
+			var dominantElement = null;
+			var windowOffset = $(window).scrollTop();
+			var headerHeight = $('header').height();
+			var boxCenter = windowOffset + headerHeight + 100.0;
+
+			$('section').each(function(index, el) {
+				var section = $(el);
+
+				var top = section.offset().top;
+				var height = section.height(); 
+
+				if (top >= boxCenter - 100 && top <= boxCenter + 100) {
+					dominantElement = section;
+					return false;
+				};
+			});
+
+			if (dominantElement != null) {
+				var id = '#' + dominantElement.attr('data-id');
+
+				$('header ul li a').each(function(index, el) {
+					var href = $(el).attr('href');
+
+					if (href == id) {
+						console.log('setting highlight to ' + $(el));
+						$(el).css('color', 'rgb(0, 87, 135)');
+					} else {
+						$(el).css('color', 'rgb(255, 255, 255)');
+					};
+				});
+			};		
+		});
+
+		$(function() {
+			var colors = [
+				'red',
+				'orange',
+				'yellow',
+				'green',
+				'blue',
+				'purple',
+				'pink',
+				'white',
+				'black',
+				'brown'
+			];
+
+			$.each(colors, function() {
+				$('.tools').append("<a href='#colors_sketch' data-color='" +
+					this + "' style='width: 20px; height: 20px; background: " +
+					this + ";'>" + this + "</a> ");
+			});
+
+			$('#colors_sketch').sketch();
+		});
+
+		</script>
+	</body>
+</html>

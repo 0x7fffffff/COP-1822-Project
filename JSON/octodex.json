@@ -1,0 +1,32 @@
+[
+	{
+		"path" : "images/octocats/constructocat.jpg",
+		"name" : "Constructocat",
+		"url"  : "https://octodex.github.com/constructocat-v2"
+	},
+	{
+		"path" : "images/octocats/bear-cavalry.png",
+		"name" : "Bear Cavalry Octocat",
+		"url"  : "https://octodex.github.com/bear-cavalry"
+	},
+	{
+		"path" : "images/octocats/heisencat.png",
+		"name" : "Heisencat",
+		"url"  : "https://octodex.github.com/heisencat"
+	},
+	{
+		"path" : "images/octocats/chellocat.jpg",
+		"name" : "Chellocat",
+		"url"  : "https://octodex.github.com/chellocat"
+	},
+	{
+		"path" : "images/octocats/ironcat.jpg",
+		"name" : "Ironcat",
+		"url"  : "https://octodex.github.com/ironcat"
+	},
+	{
+		"path" : "images/octocats/labtocat.png",
+		"name" : "Labtocat",
+		"url"  : "https://octodex.github.com/labtocat"
+	}
+]
