@@ -1,7 +1,7 @@
 COP 1822 Coding Project
 =======================
 
-This site is my final project for COP 1822 (HTML 1) at Florida South Western State College. It is a one page style personal portfolio that makes use of HTML, CSS, PHP and Javascript with jQuery. The site itself is currently hosted at http://mickmaccallum.com/ with the required demonstration page explaining the site located at http://mickmaccallum.com/demo.html 
+This site is my final project for COP 1822 (HTML 1) at Florida South Western State College. It is a one page style personal portfolio that makes use of HTML, CSS, PHP and Javascript with jQuery. The site itself is currently hosted at http://0x7fs.com/ with the required demonstration page explaining the site located at http://0x7fs.com/demo.html 
 
 
 The MIT License (MIT)
