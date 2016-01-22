@@ -279,35 +279,6 @@ function overrideReadMoreLinkBehavior() {
 	});
 }
 
-// http://stackoverflow.com/a/2746983/716216
-function isCanvasSupported() {
-	// Create a DOM canvas element.
-	var elem = document.createElement('canvas');
-	// return the double inveration of attempts to get the elemet's contexts.
-	return !!(elem.getContext && elem.getContext('2d'));
-}
-
-function fallBackOnBitmapValidatedImage() {
-	// Create new img element.
-	var innerImage = $('<img>');
-
-	// Set attributes of new img element.
-	innerImage.attr({
-		src: 'images/validated.png',
-		alt: 'Powered by HTML5 &amp; CSS3',
-		title: 'Powered by HTML5 &amp; CSS3'
-	});
-
-	// Create new anchor element.
-	var outerAnchor = $('<a href="http://www.w3.org/html/logo/"></a>');
-
-	// Insert img element as child of anchor.
-	outerAnchor.append(innerImage);
-
-	// Replace the footer canvas element with the new img.
-	$('#validatedCanvas').replaceWith(outerAnchor);
-}
-
 function generateReposFromJSON(json) {
 
 	// Get all the numeric ids from the rendered repos.
@@ -627,54 +598,6 @@ $(function() {
 			generateReposFromJSON(JSON.parse(repoCache));
 		}
 	});
-});
-
-$(function() {
-	if (isCanvasSupported()) {
-		$.get('images/validated.svg', function(data) {
-			/**
-			* Info for this came from:
-			*	https://developer.mozilla.org/en-US/docs/Web/API/
-			*		Canvas_API/Drawing_DOM_objects_into_a_canvas
-			*/
-
-			// Get the canvas element from the footer.
-			var canvas = $('#validatedCanvas')[0];
-			// Get the current context of the canvas.
-			var ctx    = canvas.getContext('2d');
-
-			// Set the DOM URL to what ever is available.
-			var DOMURL = window.URL || window.webkitURL || window;
-
-			// Create a new Image object.
-			var img = new Image();
-			// Create a new SVG data blob.
-			var svg = new Blob([data], {
-				type: 'image/svg+xml;charset=utf-8'
-			});
-
-			// Create a local URL for the blob object.
-			var url = DOMURL.createObjectURL(svg);
-			// Assign the blobs URL to the image.
-			img.src = url;
-
-			// Specified as onload because this isn't instantaneous.
-			// Why u no work on Safari?
-			img.onload = function() {
-				ctx.drawImage(img, 0, 0);
-				DOMURL.revokeObjectURL(url);
-			};
-
-			// Catches failures from img. Also catches unsupported browsers.
-			img.onerror = function(e) {
-				// Remove the canvas and use a PNG render instead.
-				fallBackOnBitmapValidatedImage();
-			};
-		}, 'text');
-	} else {
-		// Remove the canvas and use a PNG render instead.
-		fallBackOnBitmapValidatedImage();
-	}
 });
 
 $(function() {
