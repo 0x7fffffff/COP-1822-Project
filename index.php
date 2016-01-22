@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
-<!-- 
+<!--
 	Michael MacCallum - COP1822
-	
+
 	This is the main HTML / PHP file for the website. All JS and CSS is
 	imported from here. This file contains a majority of the required elements
 	including:
 
 	unordered lists with custom icons, tables, images, figures, divs,
 	a header, a footer, sections, anchors, navs, spans, brs, wbrs,
-	classes, ids, figcaptions, h1, h2, h3, h4, thead, tbody, tr, th, td, forms, 
+	classes, ids, figcaptions, h1, h2, h3, h4, thead, tbody, tr, th, td, forms,
 	labels, inputs, textareas, buttons, canvas and em.
 
 	All remaining elements that haven't been listed here can be found in the
@@ -17,7 +17,7 @@
 
 	This page is divided into multiple sections, some of which contain strictly
 	static content that appropriately resizes as the window resizes. The rest
-	of the sections contain multiple dynamically generated subsections, that 
+	of the sections contain multiple dynamically generated subsections, that
 	can be rearranged as the window resizes.
 
  -->
@@ -40,10 +40,10 @@
 		content="ewAJ47kBUq4bjHbz5upFnffO8qAJCAsaw-B4b_pVs64">
 
 	<meta name="robots" content="index, nofollow">
-	<meta name="author" 
+	<meta name="author"
 		content="Michael MacCallum, micksmaccallum@gmail.com">
-	
-	<meta name="designer" content="Michael MacCallum">		
+
+	<meta name="designer" content="Michael MacCallum">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 
@@ -51,23 +51,23 @@
 
 	<!-- local stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-	
+
 	<!-- external stylesheet for the carousel -->
 	<link rel="stylesheet" type="text/css"
 		href="//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css" />
-	
+
 	<!-- Place favicon.ico and apple-touch-icon.png in the root dir -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 	<link rel="apple-touch-icon"
 		href="images/apple/touch-icon-iphone.png">
-	
+
 	<link rel="apple-touch-icon" sizes="76x76"
 		href="images/apple/touch-icon-ipad.png">
-	
+
 	<link rel="apple-touch-icon" sizes="120x120"
 		href="images/apple/touch-icon-iphone-retina.png">
-	
+
 	<link rel="apple-touch-icon" sizes="152x152"
 		href="images/apple/touch-icon-ipad-retina.png">
 
@@ -79,23 +79,23 @@
 
 	Copyright (c) [2014] [Michael MacCallum]
 
-	Permission is hereby granted, free of charge, to any person obtaining a 
-	copy of this software and associated documentation files 
+	Permission is hereby granted, free of charge, to any person obtaining a
+	copy of this software and associated documentation files
 	(the "Software"), to deal in the Software without restriction, including
-	without limitation the rights to use, copy, modify, merge, publish, 
+	without limitation the rights to use, copy, modify, merge, publish,
 	distribute, sublicense, and/or sell copies of the Software, and to
-	permit persons to whom the Software is furnished to do so, subject to 
+	permit persons to whom the Software is furnished to do so, subject to
 	the following conditions:
 
 	The above copyright notice and this permission notice shall be included
 	in all copies or substantial portions of the Software.
 
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
@@ -137,7 +137,7 @@
 								MickMacCallum.com
 							</h3>
 
-							<img src="images/bars.png" 
+							<img src="images/bars.png"
 								alt="Navigation Menu Bars">
 						</a>
 					</div>
@@ -252,7 +252,7 @@
 					// Get dates from argument and current date.
 				    $then = new DateTime($date);
 					$now = new DateTime();
-					
+
 					// Determine the difference between the two dates.
 					$diff = $now->diff($then);
 					// Get the years component of the difference.
@@ -392,10 +392,10 @@
 				<br />
 			</div>
 
-			<!-- 
+			<!--
 				PHP loads repos from my GitHub account to display on the
 				site. For now this is pulling from a local copy of the JSON
-				until I can fix the request.	
+				until I can fix the request.
 			-->
 
 			<!-- Extra line breaks are here to preserve PHP formatting. -->
@@ -441,7 +441,7 @@
 				$name = $repo['name'];
 				$language = $repo['language'];
 				/*
-					Get the description field for the current 
+					Get the description field for the current
 					repository and encode special characters.
 					This is necessary to store the full string in
 					a custom attribute on each section to be loaded
@@ -464,14 +464,14 @@
 
 				/*
 					Spits out a poorly implemented template for display
-					of a title, language and description of an 
+					of a title, language and description of an
 					individual repository.
 				*/
 			?>
 
 			<div class="repo" data-repo="<?php echo $i; ?>">
 				<a href="<?php echo $url; ?>">
-					<img src="<?php echo $imagePath; ?>" 
+					<img src="<?php echo $imagePath; ?>"
 						alt="<?php echo $imageAlt; ?>">
 				</a>
 
@@ -492,12 +492,12 @@
 				<div data-description="<?php echo $data; ?>">
 					<?php echo $description; ?>
 
-				</div> 
+				</div>
 			</div>
 	        <?php endfor; ?>
 
 			<!-- // Add the link to load 3 more repositories. -->
-			<a href="#" data-remaining="<?php echo $remaining; ?>" 
+			<a href="#" data-remaining="<?php echo $remaining; ?>"
 				id="show_more">
 				Show 3 of <?php echo $remaining; ?> More
 			</a>
@@ -631,7 +631,7 @@
 
 			<!-- Backup of summary data
 				summary="Table show list of languages
-				I&#39;ve worked with grouped into three categories, 
+				I&#39;ve worked with grouped into three categories,
 				mobile, desktop, and web" -->
 
 			<div class="table_container">
@@ -816,7 +816,7 @@
 					<!-- textarea tags can not have a line break between
 					them. The break is counted as a space in text content
 					which removes the placeholder text. -->
-					<textarea name="message" id="message" tabindex="3" 
+					<textarea name="message" id="message" tabindex="3"
 						placeholder="Please enter your message here."
 						required></textarea>
 				</div>
@@ -838,15 +838,12 @@
 	<footer>
 		<div id="footer_container">
 			<div id="footer_center">
-
-				<canvas id="validatedCanvas" width="154" height="64"></canvas>
-
 				<ul>
 					<li>
 						&copy;<?php echo date("Y"); ?>
 						Michael MacCallum, all rights reserved.
 					</li>
-					
+
 					<li>
 						Hosted on
 
@@ -854,7 +851,7 @@
 							A Small Orange
 						</a>
 					</li>
-					
+
 					<li>
 						Octocats from GitHub&#39;s
 
@@ -870,7 +867,7 @@
 	<!-- Scripts placed at end of <body> for the 15% of people in the world
 		that don't have browsers that support speculative parsing. -->
 
-	<script type="text/javascript" 
+	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-2.1.1.min.js">
 	</script>
 	<script>
@@ -910,6 +907,6 @@
 
 	<script type="text/javascript"
 		src="js/retina.min.js">
-	</script> 
+	</script>
 </body>
 </html>
