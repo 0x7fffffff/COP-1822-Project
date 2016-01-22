@@ -699,6 +699,20 @@
 						<tr>
 							<td headers="web"
 								class="row">
+								Java
+							</td>
+						</tr>
+
+						<tr>
+							<td headers="web"
+								class="row">
+								C#
+							</td>
+						</tr>
+
+						<tr>
+							<td headers="web"
+								class="row">
 								Javascript &amp; jQuery
 							</td>
 						</tr>
@@ -707,20 +721,6 @@
 							<td headers="web"
 								class="row">
 								HTML5 &amp; CSS3
-							</td>
-						</tr>
-
-						<tr>
-							<td headers="web"
-								class="row">
-								PHP
-							</td>
-						</tr>
-
-						<tr>
-							<td headers="web"
-								class="row">
-								Python
 							</td>
 						</tr>
 					</tbody>
@@ -755,14 +755,14 @@
 						<tr>
 							<td headers="mobile"
 								class="row">
-								Git
+								Atom
 							</td>
 						</tr>
 
 						<tr>
 							<td headers="mobile"
 								class="row">
-								Photoshop
+								Git
 							</td>
 						</tr>
 					</tbody>
